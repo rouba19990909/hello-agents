@@ -130,7 +130,10 @@ class MySimpleAgent(SimpleAgent):
     def _parse_tool_calls(self, text: str) -> list:
         """解析文本中的工具调用"""
         pattern = r'\[TOOL_CALL:([^:]+):([^\]]+)\]'
-        matches = re.findall(pattern, text)
+        # 例如，请执行 [TOOL_CALL:search:天气预报]，然后继续。
+        # 捕获结果：("search", "天气预报")
+        matches = re.findall(pattern, text) # 匹配工具二元组，（tool_name, parameters）
+
 
         tool_calls = []
         for tool_name, parameters in matches:
