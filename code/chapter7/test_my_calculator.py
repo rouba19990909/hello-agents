@@ -61,4 +61,4 @@ def test_with_simple_agent():
 
 if __name__ == "__main__":
     test_calculator_tool()
-    test_with_simple_agent()
+    # test_with_simple_agent()
