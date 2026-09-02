@@ -900,7 +900,7 @@ from hello_agents.tools import MCPTool
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv(dotenv_path="../HelloAgents/.env")
+load_dotenv()
 
 print("="*70)
 print("Multi-Agent Collaborative Intelligent Document Assistant")
