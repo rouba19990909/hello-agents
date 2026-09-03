@@ -9,6 +9,10 @@
 from hello_agents import SimpleAgent, HelloAgentsLLM
 from hello_agents.tools import BFCLEvaluationTool
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # 1. 创建要评估的智能体
 llm = HelloAgentsLLM()
 agent = SimpleAgent(name="TestAgent", llm=llm)
