@@ -10,13 +10,18 @@
 from hello_agents import SimpleAgent, HelloAgentsLLM
 from hello_agents.evaluation import BFCLDataset, BFCLEvaluator
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 # 1. 创建智能体
 llm = HelloAgentsLLM()
 agent = SimpleAgent(name="TestAgent", llm=llm)
 
 # 2. 加载数据集
 dataset = BFCLDataset(
-    bfcl_data_dir="./temp_gorilla/berkeley-function-call-leaderboard/bfcl_eval/data",
+    bfcl_data_dir="./temp_gorilla/gorilla/berkeley-function-call-leaderboard/bfcl_eval/data",
     category="simple_python"
 )
 data = dataset.load()
