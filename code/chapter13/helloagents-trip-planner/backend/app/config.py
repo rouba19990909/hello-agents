@@ -47,6 +47,7 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
 
     class Config:
+        """自动将环境变量映射到配置字段，如AMAP_API_KEY 会自动映射到 amap_api_key"""
         env_file = ".env"
         case_sensitive = False
         extra = "ignore"  # 忽略额外的环境变量
@@ -97,7 +98,7 @@ def print_config():
     print(f"应用名称: {settings.app_name}")
     print(f"版本: {settings.app_version}")
     print(f"服务器: {settings.host}:{settings.port}")
-    print(f"高德地图API Key: {'已配置' if settings.amap_api_key else '未配置'}")
+    print(f"高德地图API Key: {'已配置: ' + settings.amap_api_key if settings.amap_api_key else '未配置'}")
 
     # 检查LLM配置
     llm_api_key = os.getenv("LLM_API_KEY") or os.getenv("OPENAI_API_KEY")
@@ -108,4 +109,6 @@ def print_config():
     print(f"LLM Base URL: {llm_base_url}")
     print(f"LLM Model: {llm_model}")
     print(f"日志级别: {settings.log_level}")
+
+print_config()
 
