@@ -789,6 +789,11 @@ const exportAsPDF = async () => {
 // 初始化地图
 const initMap = async () => {
   try {
+    // 高德地图 JS API 2.0 安全密钥配置，必须在加载 JS API 前设置
+    ;(window as any)._AMapSecurityConfig = {
+      securityJsCode: import.meta.env.VITE_AMAP_SECURITY_JS_CODE
+    }
+
     const AMap = await AMapLoader.load({
       key: import.meta.env.VITE_AMAP_WEB_JS_KEY,  // 高德地图Web端(JS API) Key
       version: '2.0',
