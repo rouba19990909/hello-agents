@@ -15,6 +15,11 @@ from pydantic import BaseModel, Field
 from config import Configuration, SearchAPI
 from agent import DeepResearchAgent
 
+from dotenv import load_dotenv
+from pathlib import Path
+ENV_FILE = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(ENV_FILE)
+
 # 添加控制台日志处理程序
 logger.add(
     sys.stderr,

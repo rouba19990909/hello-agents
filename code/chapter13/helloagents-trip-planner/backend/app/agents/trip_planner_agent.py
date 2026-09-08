@@ -283,6 +283,7 @@ class MultiAgentTripPlanner:
         keywords = []
         if request.preferences:
             # 只取第一个偏好作为关键词
+            # TODO 既然只取第一个偏好作为关键词，那为什么要支持多个爱好添加
             keywords = request.preferences[0]
         else:
             keywords = "景点"
