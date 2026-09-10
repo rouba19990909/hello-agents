@@ -119,7 +119,7 @@ class DeepResearchAgent:
 
     def _set_tool_event_sink(self, sink: Callable[[dict[str, Any]], None] | None) -> None:
         """Enable or disable immediate tool event callbacks."""
-        self._tool_event_sink_enabled = sink is not None
+        self._tool_event_sink_enabled = sink is not None # 标记实时事件已通知启用
         self._tool_tracker.set_event_sink(sink)
 
     def run(self, topic: str) -> SummaryStateOutput:
